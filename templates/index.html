@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartSkill: Skill Assessment Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='hack.css') }}">
+</head>
+<body>
+<div class="container">
+
+    <!-- Login Section -->
+    <div id="login" class="card-section">
+        <h2>Student Login</h2>
+        <input type="text" id="name" placeholder="Enter your name">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Skill Selection Dashboard -->
+    <div id="skill" class="hidden card-section">
+        <h2>Available Skill Tests</h2>
+        <div class="cards">
+            <div class="card" onclick="startTest('Python')">
+                <h3>🐍 Python</h3>
+                <p>Basics • Loops • Functions</p>
+                <span>3 Questions</span>
+            </div>
+            <div class="card" onclick="startTest('Java')">
+                <h3>☕ Java</h3>
+                <p>OOP • Collections • Basics</p>
+                <span>3 Questions</span>
+            </div>
+            <div class="card" onclick="startTest('Aptitude')">
+                <h3>🧠 Aptitude</h3>
+                <p>Logical • Quantitative</p>
+                <span>3 Questions</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quiz" class="hidden card-section">
+        <h2 id="skillTitle"></h2>
+        <p id="question"></p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="options">
+            <button id="opt0" onclick="checkAnswer(0)"></button>
+            <button id="opt1" onclick="checkAnswer(1)"></button>
+            <button id="opt2" onclick="checkAnswer(2)"></button>
+            <button id="opt3" onclick="checkAnswer(3)"></button>
+        </div>
+    </div>
+
+    <!-- Result Section -->
+    <div id="result" class="hidden card-section">
+        <h2>Result</h2>
+        <p id="score"></p>
+        <p id="level"></p>
+        <p id="recommendation"></p>
+
+        <!-- Certificate Download Button -->
+        <a id="downloadBtn" class="hidden" href="#" target="_blank">
+            <button>📄 Download Certificate</button>
+        </a>
+
+        <button onclick="location.reload()">Take Again</button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
